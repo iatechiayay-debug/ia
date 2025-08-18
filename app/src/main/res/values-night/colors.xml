@@ -1,0 +1,8 @@
+<resources>
+    <color name="industrial_blue">#FF1565C0</color>
+    <color name="industrial_blue_dark">#FF0D47A1</color>
+    <color name="industrial_orange">#FFFF6F00</color>
+    <color name="industrial_orange_dark">#FFEF6C00</color>
+    <color name="error_red">#FFF44336</color>
+</resources>
+
