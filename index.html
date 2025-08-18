@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Control Panel Designer - V1</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Control Panel Designer</h1>
+      <p class="subtitle">Version 1 · Mock PLC logic (Siemens S7-1200) · BOM export</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Project Specifications</h2>
+        <form id="specForm" class="spec-form">
+          <div class="field">
+            <label for="numDI">Number of digital inputs (DI)</label>
+            <input id="numDI" name="numDI" type="number" min="0" step="1" required value="8" />
+          </div>
+          <div class="field">
+            <label for="numDO">Number of digital outputs (DO)</label>
+            <input id="numDO" name="numDO" type="number" min="0" step="1" required value="6" />
+          </div>
+          <div class="field">
+            <label for="voltage">Operating voltage</label>
+            <select id="voltage" name="voltage" required>
+              <option value="24VDC" selected>24VDC</option>
+              <option value="230VAC">230VAC</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ipRating">Enclosure IP rating</label>
+            <select id="ipRating" name="ipRating" required>
+              <option value="IP54">IP54</option>
+              <option value="IP65" selected>IP65</option>
+              <option value="IP66">IP66</option>
+              <option value="IP67">IP67</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="material">Enclosure material</label>
+            <select id="material" name="material" required>
+              <option value="Steel" selected>Steel</option>
+              <option value="Stainless Steel (304)">Stainless Steel (304)</option>
+              <option value="Polycarbonate">Polycarbonate</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="temperature">Environment temperature (°C)</label>
+            <input id="temperature" name="temperature" type="number" step="0.1" required value="25" />
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn primary">Generate design & BOM</button>
+            <button type="button" id="resetForm" class="btn">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="designSection" class="card hidden">
+        <h2>Recommended Design</h2>
+        <div id="recommendations"></div>
+      </section>
+
+      <section id="bomSection" class="card hidden">
+        <h2>Bill of Materials (BOM)</h2>
+        <div class="bom-actions">
+          <button id="exportCsv" class="btn">Export CSV</button>
+          <button id="exportPdf" class="btn">Export PDF</button>
+          <button id="copyCsv" class="btn">Copy CSV</button>
+        </div>
+        <div id="bomTableContainer">
+          <table id="bomTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Part name</th>
+                <th>Part number</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Mock data for demonstration only. Validate selections with your vendor before purchasing.</p>
+    </footer>
+
+    <!-- html2pdf for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-YcsIPj9uvb4dq+2mxDqB1PhV93H4eNqzTcRBUy3z5XaRCi5bFYEcHh3Doqt4fYf3Q6a2eJtgOaYPhfPTCbr8eg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./app.js"></script>
+  </body>
+  </html>
+
