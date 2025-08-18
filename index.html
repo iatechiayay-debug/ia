@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Panel Designer - V1</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Control Panel Designer</h1>
+      <p class="subtitle">Version 1 · Mock recommendations (Siemens S7-1200)</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Project Specifications</h2>
+        <form id="spec-form" autocomplete="off">
+          <div class="form-grid">
+            <label class="form-field">
+              <span>Number of Digital Inputs (DI)</span>
+              <input id="numDi" name="numDi" type="number" min="0" step="1" required placeholder="e.g., 12" />
+            </label>
+
+            <label class="form-field">
+              <span>Number of Digital Outputs (DO)</span>
+              <input id="numDo" name="numDo" type="number" min="0" step="1" required placeholder="e.g., 10" />
+            </label>
+
+            <label class="form-field">
+              <span>Operating Voltage</span>
+              <select id="operatingVoltage" name="operatingVoltage" required>
+                <option value="" disabled selected>Select voltage</option>
+                <option value="24VDC">24VDC</option>
+                <option value="230VAC">230VAC</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span>Enclosure IP Rating</span>
+              <select id="ipRating" name="ipRating" required>
+                <option value="" disabled selected>Select IP rating</option>
+                <option>IP54</option>
+                <option>IP65</option>
+                <option>IP66</option>
+                <option>IP67</option>
+                <option>IP68</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span>Enclosure Material</span>
+              <select id="enclosureMaterial" name="enclosureMaterial" required>
+                <option value="" disabled selected>Select material</option>
+                <option>Polycarbonate</option>
+                <option>Painted Steel</option>
+                <option>Stainless Steel 304</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span>Environment Temperature (°C)</span>
+              <input id="ambientTempC" name="ambientTempC" type="number" step="1" placeholder="e.g., 35" />
+            </label>
+          </div>
+
+          <div class="actions">
+            <button id="generateBtn" type="submit">Generate Suggested Design & BOM</button>
+            <button id="resetBtn" type="button" class="secondary">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="resultsSection" class="card results hidden">
+        <div class="results-header">
+          <h2>Suggested Design</h2>
+          <div class="export-actions">
+            <button id="exportCsvBtn" class="secondary" disabled>Export CSV</button>
+            <button id="exportPdfBtn" class="secondary" disabled>Export PDF</button>
+            <button id="copyCsvBtn" class="secondary" disabled>Copy CSV</button>
+          </div>
+        </div>
+
+        <div id="recommendationSummary" class="summary"></div>
+
+        <div class="table-wrapper">
+          <table id="bomTable" class="bom-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Part Number</th>
+                <th>Qty</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <small>For estimation only. Validate with vendor datasheets before ordering.</small>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+  </html>
+
