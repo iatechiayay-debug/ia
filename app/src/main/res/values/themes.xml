@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.IndustrialSearch" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/industrial_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/industrial_blue</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        <item name="colorSecondary">@color/industrial_orange</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/industrial_orange</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+        <item name="colorTertiary">@color/teal_200</item>
+        <item name="colorOnTertiary">@color/black</item>
+        <item name="colorError">@color/error_red</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="android:statusBarColor">@color/industrial_blue</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
+
